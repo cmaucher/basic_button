@@ -1,3 +1,11 @@
+/////////////////////////////////////////////////////////////////////////////
+// This is a class to set up a switch input for debouncing on the Arduino.
+// The debounce function will return the switch state after the "delay"
+// in ms.
+//
+// author - Chris Maucher
+////////////////////////////////////////////////////////////////////////////
+
 #include "basic_button.h"
 
 MyButton::MyButton(int pin)
