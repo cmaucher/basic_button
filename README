@@ -1,0 +1,37 @@
+This project debounces a switch input when using an Arduino.  There are two essential potions to this project, a MyButton class and the debounce function.
+To use this you must first include the basic_button.h in the beginning of the main project.  To do this one must first add:
+	#include <basic_button.h> 
+At the beginning of the project code, outside of the setup() function.
+
+Then the MyButton class needs to be initialized be calling the MyButton class:
+	MyButton this_input = MyButton(2);
+For the rest of the code, this_input is now the class instantiation for the digital input 2.
+
+The debounce function returns a HIGH of LOW, so a variable needs to be set up:
+	int switch_state;
+
+To use the debounce feature, a time value is sent to the debounce function.  This value is an unsigned long and represents a time in milliseconds.\
+	switch_state = this_input.debounce(5);
+
+The power in this project is the ability to use different times depending on the length of the project.  A short project may need a longer delay and a longer project benefits from a shorter delay.
+
+A project would look like this:
+
+	#include <basic_button.h>
+
+	MyButton this_input = MyButton(2);
+
+	int swtich_state;
+	unsigned long delay = 5;
+
+	void setup()
+	{
+		// normal setup code
+	}
+
+	void loop()
+	{
+		// loop code
+		switch_state = this_input.debounce(delay);
+		// loop code
+	}
